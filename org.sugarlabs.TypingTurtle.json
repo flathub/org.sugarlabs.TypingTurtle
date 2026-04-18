@@ -47,6 +47,10 @@
                 {
                     "type": "patch",
                     "path": "typingturtle-layout.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "typingturtle-glycin.patch"
                 }
             ],
             "post-install": [

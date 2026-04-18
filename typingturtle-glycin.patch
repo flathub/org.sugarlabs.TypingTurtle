@@ -1,0 +1,23 @@
+diff --git a/keyboard.py b/keyboard.py
+index b922777..201da09 100644
+--- a/keyboard.py
++++ b/keyboard.py
+@@ -557,16 +557,9 @@ class KeyboardWidget(KeyboardData, Gtk.DrawingArea):
+         key['key-y'] = 0
+ 
+         self._draw_key(key, cr)
+-
+-        # Convert cairo.Surface to Pixbuf
+-        pixbuf_data = io.BytesIO()
+-        surface.write_to_png(pixbuf_data)
+-        pxb_loader = GdkPixbuf.PixbufLoader.new_with_type('png')
+-        pxb_loader.write(pixbuf_data.getvalue())
+-        temp_pix = pxb_loader.get_pixbuf()
+-        pxb_loader.close()
+         
+-        	
++        # Convert cairo.Surface to Pixbuf
++        temp_pix = Gdk.pixbuf_get_from_surface(surface, 0, 0, surface.get_width(), surface.get_height())
+ 
+         self.active_state, self.active_group = old_state, old_group
+ 
