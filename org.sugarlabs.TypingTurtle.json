@@ -1,9 +1,9 @@
 {
     "app-id": "org.sugarlabs.TypingTurtle",
     "base": "org.sugarlabs.BaseApp",
-    "base-version": "24.04",
+    "base-version": "26.04",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "50",
     "sdk": "org.gnome.Sdk",
     "separate-locales": false,
     "command": "sugarapp",
@@ -14,6 +14,10 @@
         "--device=dri",
         "--env=SUGAR_BUNDLE_ID=org.sugarlabs.TypingTurtle",
         "--env=SUGAR_BUNDLE_PATH=/app/share/sugar/activities/TypingTurtle.activity"
+    ],
+    "cleanup-commands": [
+        "rm -rf /lib/girepository-1.0",
+        "rm -rf /app/share/gir-1.0"
     ],
     "modules": [
         {
@@ -43,6 +47,10 @@
                 {
                     "type": "patch",
                     "path": "typingturtle-layout.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "typingturtle-glycin.patch"
                 }
             ],
             "post-install": [
